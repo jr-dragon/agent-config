@@ -16,3 +16,13 @@ This skill helps developers write clear, concise, maintainable, and idiomatic Go
 - **Consistency**: Maintain consistency with the overall codebase.
 
 *Note: Google Style takes precedence in case of conflicts.*
+
+### Go Project Layout (`go-project-layout`)
+
+This skill guides developers in organizing Go project structures based on the [Standard Go Project Layout](https://github.com/golang-standards/project-layout), ensuring scalability, encapsulation, and clarity.
+
+**Core Principles:**
+- **Express Intent**: Clearly define the purpose of directories (e.g., `cmd`, `internal`, `pkg`) through the structure.
+- **Encapsulation**: Use `internal` directories to enforce access control and prevent unexpected dependencies.
+- **Start Simple**: Begin with a simple structure and introduce complexity only as the project grows.
+- **Idiomatic**: Follow Go naming and organization conventions, avoiding patterns from other languages (e.g., avoid `src` directories).

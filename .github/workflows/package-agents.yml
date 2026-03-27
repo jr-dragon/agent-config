@@ -1,0 +1,45 @@
+name: Package Agents
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Create Claude version
+        run: |
+          cp -r .agents .claude
+          zip -r agents-claude.zip .claude
+          rm -rf .claude
+
+      - name: Create Open Agent version
+        run: |
+          zip -r agents-open-agent.zip .agents
+
+      - name: Upload Artifacts
+        if: github.event_name == 'workflow_dispatch'
+        uses: actions/upload-artifact@v4
+        with:
+          name: packaged-agents
+          path: |
+            agents-claude.zip
+            agents-open-agent.zip
+
+      - name: Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            agents-claude.zip
+            agents-open-agent.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
