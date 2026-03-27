@@ -1,6 +1,19 @@
 # Agent Config
 
+[![Package Agents](https://github.com/jr-dragon/agent-config/actions/workflows/package-agents.yml/badge.svg)](https://github.com/jr-dragon/agent-config/actions/workflows/package-agents.yml)
+
 This repository includes my agent config.
+
+## Usage
+
+1. Access [Release](https://github.com/jr-dragon/agent-config/releases) Page
+2. Choose the latest version
+3. 
+  - (Claude Code) Download `agents-claude.zip`
+  - (Gemini, Opencode, Codex) Download `agents-open-agent.zip`
+4. Move downloaded file into project or home directory
+5. Unzip it, and don't forget to remove `.zip` file
+
 
 ## Skills
 
